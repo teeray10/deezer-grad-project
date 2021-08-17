@@ -8,23 +8,25 @@ clone:
   depth: full
 
 pipelines:
-
-
   pull-requests:  
     '**':
-      - step:
-          name: Security Scan
-          script:
-            - pipe: atlassian/git-secrets-scan:0.4.3
-      - step:
-          name: Lint
-          script:
-            - npm run lint
-      - step:
-          name: Test
-          script: 
-            - npm install
-            - npm run test-headless
+      - parallel:
+        - step:
+            name: Security Scan
+            script:
+              - pipe: atlassian/git-secrets-scan:0.4.3
+        - step:
+            name: Lint
+            script:
+              - npm install
+              - npm run lint
+        - step:
+            name: Test
+            script: 
+              - npm install
+              - npm run test-headless
+  branches:
+    main:
       - step:
           name: Build   
           script: 
@@ -35,8 +37,8 @@ pipelines:
       - step:
           name: Compress
           script:
-            - apt update && apt install zip
-            - zip -r app-$BITBUCKET_BUILD_NUMBER.zip dist
+            - git fetch origin main:refs/remotes/origin/main
+            - git archive --format=tar.gz main -o app-$BITBUCKET_BUILD_NUMBER.tar.gz
           artifacts:
             - "*.zip"
       - step:
@@ -47,4 +49,4 @@ pipelines:
               variables:
                 HEROKU_API_KEY: $HEROKU_API_KEY
                 HEROKU_APP_NAME: $HEROKU_APP_NAME
-                ZIP_FILE: app-$BITBUCKET_BUILD_NUMBER.zip
+                ZIP_FILE: app-$BITBUCKET_BUILD_NUMBER.tar.gz
