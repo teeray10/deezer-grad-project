@@ -1,0 +1,25 @@
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo {
+    object-fit: cover;
+    height: auto;
+    width: 200px;
+}
+
+#heading {
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 500;
+    margin: 100px 0 100px 0;
+    text-align: center;
+}
+
+.mat-raised-button {
+    width: 250px;
+}
