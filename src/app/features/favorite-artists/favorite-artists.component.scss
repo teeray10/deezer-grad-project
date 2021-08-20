@@ -1,0 +1,24 @@
+@import '../../../styles.scss';
+
+:host {
+    width: 100%;
+}
+
+.artists-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.artist-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+}
+
+.artist-container img{
+    border-radius: 50%;
+    display: inline-block;
+    width: 250px;
+    height: auto;
+}
