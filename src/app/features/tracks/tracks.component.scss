@@ -1,0 +1,31 @@
+.filter-bar {
+    display: flex;
+    align-items: flex-end;
+}
+
+.filter-bar h1 {
+    width: 85%;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.mat-form-field {
+    font-size: 14px;
+}
+
+table {
+    width: 100%;
+}
+
+$columns: (
+    "number": 10%,
+    "track": 30%,
+    "artist": 30%,
+    "album": 30%
+);
+
+@each $heading, $width in $columns {
+    .mat-column-#{$heading} {
+        width: $width;
+    }
+}
