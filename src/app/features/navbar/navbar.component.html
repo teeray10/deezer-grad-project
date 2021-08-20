@@ -1,0 +1,10 @@
+<mat-toolbar>
+    <div class="logo">
+        <img src="../../../assets/images/deezer-logo.svg" alt="Deezer Logo"/>
+    </div>
+    <div class="search-bar">
+        <img src="../../../assets/icons/search-icon.svg" alt="Search Icon"/>
+        <input id="search-input" type="text" placeholder="Search" [(ngModel)]="value" name="searchInput">
+        <img *ngIf="value" src="../../../assets/icons/clear-icon.svg" alt="Clear Icon" (click)="clearInput()"/>
+    </div>
+</mat-toolbar>
