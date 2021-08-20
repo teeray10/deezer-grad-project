@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ArtistComponent } from "./features/artist/artist.component";
 import { HomeComponent } from "./features/home/home.component";
 
 const routes: Routes = [
     {
         path: '',
         component: HomeComponent
+    },
+    {
+        path: 'artist',
+        component: ArtistComponent
     }
 ];
 
