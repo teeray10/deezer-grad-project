@@ -1,0 +1,35 @@
+.container {
+    height: 100%;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.artist-profile {
+    display: flex;
+    height: 35%;
+    align-items: center;
+}
+
+.artist-picture {
+    margin-right: 1%;
+}
+
+.artist-picture img {
+    border-radius: 50%;
+}
+
+.artist-info h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.artist-content {
+    display: flex;
+    justify-content: center;
+}
+
+.mat-tab-group {
+    width: 100%;
+}
