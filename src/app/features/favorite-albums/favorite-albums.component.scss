@@ -1,0 +1,11 @@
+@import '../../../styles.scss';
+
+.albums-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.album-card {
+    width: 100%;
+}

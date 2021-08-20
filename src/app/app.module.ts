@@ -22,6 +22,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { TracksComponent } from './features/tracks/tracks.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { FavoriteAlbumsComponent } from './features/favorite-albums/favorite-albums.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MatCardModule } from '@angular/material/card';
         ArtistComponent,
         TracksComponent,
         AlbumsComponent,
-        FavoriteArtistsComponent
+        FavoriteArtistsComponent,
+        FavoriteAlbumsComponent
     ],
     imports: [
         BrowserModule,
