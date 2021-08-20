@@ -10,6 +10,7 @@ import { SignInComponent } from './features/sign-in/sign-in.component';
 import { HomeComponent } from './features/home/home.component';
 import { NavbarComponent } from './features/navbar/navbar.component';
 import { ArtistComponent } from './features/artist/artist.component';
+import { AlbumsComponent } from './features/albums/albums.component';
 
 // Material Modules
 import { MatButtonModule } from '@angular/material/button';
@@ -19,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { TracksComponent } from './features/tracks/tracks.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { MatTableModule } from '@angular/material/table';
         HomeComponent,
         NavbarComponent,
         ArtistComponent,
-        TracksComponent
+        TracksComponent,
+        AlbumsComponent
     ],
     imports: [
         BrowserModule,
@@ -39,7 +42,8 @@ import { MatTableModule } from '@angular/material/table';
         FormsModule,
         MatIconModule,
         MatTabsModule,
-        MatTableModule
+        MatTableModule,
+        MatCardModule
     ],
     providers: [],
     bootstrap: [AppComponent]
