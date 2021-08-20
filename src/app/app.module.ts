@@ -17,6 +17,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
+import { TracksComponent } from './features/tracks/tracks.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { MatTabsModule } from '@angular/material/tabs';
         SignInComponent,
         HomeComponent,
         NavbarComponent,
-        ArtistComponent
+        ArtistComponent,
+        TracksComponent
     ],
     imports: [
         BrowserModule,
@@ -35,7 +38,8 @@ import { MatTabsModule } from '@angular/material/tabs';
         MatInputModule,
         FormsModule,
         MatIconModule,
-        MatTabsModule
+        MatTabsModule,
+        MatTableModule
     ],
     providers: [],
     bootstrap: [AppComponent]

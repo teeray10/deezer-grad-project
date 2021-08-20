@@ -1,0 +1,32 @@
+<div class="filter-bar">
+    <h1>Top Tracks</h1>
+    <mat-form-field appearance="standard">
+        <input matInput placeholder="Filter" #input>
+    </mat-form-field>
+</div>
+<div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="number">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> # </th>
+            <td mat-cell *matCellDef="let track"> 1 </td>
+        </ng-container>
+
+        <ng-container matColumnDef="track">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> TRACK </th>
+            <td mat-cell *matCellDef="let track"> {{track.track}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="artist">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ARTIST </th>
+            <td mat-cell *matCellDef="let track"> {{track.artist}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="album">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ALBUM </th>
+            <td mat-cell *matCellDef="let track"> {{track.album}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let track; columns: displayedColumns;"></tr>
+    </table>
+</div>
