@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="title-container">
+        <h1>All Albums</h1>
+    </div>
+    <div class="albums-container">
+        <mat-card class="album-card mat-elevation-z2" *ngFor="let album of [].constructor(8); let i = index">
+            <img mat-card-image src="https://via.placeholder.com/250" alt="Album cover">
+            <mat-card-content>
+                <h4>Album name</h4>
+                <h5>By</h5>
+                <h6>Relased</h6>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
