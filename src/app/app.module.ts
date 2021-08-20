@@ -11,6 +11,7 @@ import { HomeComponent } from './features/home/home.component';
 import { NavbarComponent } from './features/navbar/navbar.component';
 import { ArtistComponent } from './features/artist/artist.component';
 import { AlbumsComponent } from './features/albums/albums.component';
+import { FavoriteArtistsComponent } from './features/favorite-artists/favorite-artists.component';
 
 // Material Modules
 import { MatButtonModule } from '@angular/material/button';
@@ -30,7 +31,8 @@ import { MatCardModule } from '@angular/material/card';
         NavbarComponent,
         ArtistComponent,
         TracksComponent,
-        AlbumsComponent
+        AlbumsComponent,
+        FavoriteArtistsComponent
     ],
     imports: [
         BrowserModule,
