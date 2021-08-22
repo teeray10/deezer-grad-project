@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
 
 // Components
 import { AppComponent } from './app.component';
@@ -38,6 +39,7 @@ import { FavoriteAlbumsComponent } from './features/favorite-albums/favorite-alb
     ],
     imports: [
         BrowserModule,
+        HttpClientModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         MatButtonModule,

@@ -2,10 +2,10 @@
 <div class="container">
     <h2>Your Favorite Artists</h2>
     <div class="artists-container">
-        <div class="artist-container" *ngFor="let album of [].constructor(5); let i = index">
-            <img src="../../../assets/images/placeholder-image.jpg" alt="Artist picture"/>
-            <h4>Artist name</h4>
-            <h5>Fans</h5>
+        <div class="artist-container" *ngFor="let artist of favoriteArtists$ | async">
+            <img src="{{artist.picture_xl}}" alt="Artist picture"/>
+            <h4>{{artist.name}}</h4>
+            <h5>{{artist.nb_fan | number}} fans</h5>
         </div>
     </div>
 </div>

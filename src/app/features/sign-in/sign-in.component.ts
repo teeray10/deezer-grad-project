@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { oAuthSettings } from '../../oauth-settings';
+import { oAuthConfig } from '../../oauth-config';
 
 @Component({
   selector: 'app-sign-in',
@@ -14,9 +14,9 @@ export class SignInComponent {
 
     buildURL(): string {
         return this.baseOAuthURL +
-            '?response_type=' + oAuthSettings.responseType +
-            '&app_id=' + oAuthSettings.appId +
-            '&redirect_uri=' + oAuthSettings.redirectUri +
-            '&perms=' + oAuthSettings.permissions;
+            '?response_type=' + oAuthConfig.responseType +
+            '&app_id=' + oAuthConfig.appId +
+            '&redirect_uri=' + oAuthConfig.redirectUri +
+            '&perms=' + oAuthConfig.permissions;
     }
 }
