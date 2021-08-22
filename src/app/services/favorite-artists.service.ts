@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { API_BASE_URL } from '../oauth-config';
 import { OauthService } from './oauth.service';
-import { catchError, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Artist } from '../models/artist';
 
 @Injectable({
@@ -21,8 +21,7 @@ export class FavoriteArtistsService {
                 map(response => {
                     if (response.hasOwnProperty('error'))
                         throw new Error(response.error.message);
-                    return response.data as Artist[];
-                }),
-                catchError(error => of(error)));
+                    return response.data as Artist[]; // Returns the array within the response
+                }))
     }
 }

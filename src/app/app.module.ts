@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Components
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { NavbarComponent } from './features/navbar/navbar.component';
 import { ArtistComponent } from './features/artist/artist.component';
 import { AlbumsComponent } from './features/albums/albums.component';
 import { FavoriteArtistsComponent } from './features/favorite-artists/favorite-artists.component';
+import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 
 // Material Modules
 import { MatButtonModule } from '@angular/material/button';
@@ -51,7 +52,13 @@ import { FavoriteAlbumsComponent } from './features/favorite-albums/favorite-alb
         MatTableModule,
         MatCardModule
     ],
-    providers: [],
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: HttpErrorInterceptor,
+            multi: true
+        }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
