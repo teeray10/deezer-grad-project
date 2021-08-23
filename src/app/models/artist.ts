@@ -1,5 +1,5 @@
 export interface Artist {
-    id: string,
+    id: number,
     name: string,
     picture_xl: string,
     nb_fan: number

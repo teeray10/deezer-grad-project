@@ -1,36 +1,19 @@
-import { HttpClientTestingModule, HttpTestingController, TestRequest  } from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { FavoriteArtistsService } from './favorite-artists.service';
 import { OauthService } from './oauth.service';
 import { API_BASE_URL } from '../oauth-config';
+import { Artist } from '../models/artist';
 
 const successResponse = {
     data: [
         {
-            "id": 13,
-            "name": "Eminem",
-            "link": "https://www.deezer.com/artist/13",
-            "picture": "https://api.deezer.com/artist/13/image",
-            "picture_small": "https://cdns-images.dzcdn.net/images/artist/0707267475580b1b82f4da20a1b295c6/56x56-000000-80-0-0.jpg",
-            "picture_medium": "https://cdns-images.dzcdn.net/images/artist/0707267475580b1b82f4da20a1b295c6/250x250-000000-80-0-0.jpg",
-            "picture_big": "https://cdns-images.dzcdn.net/images/artist/0707267475580b1b82f4da20a1b295c6/500x500-000000-80-0-0.jpg",
-            "picture_xl": "https://cdns-images.dzcdn.net/images/artist/0707267475580b1b82f4da20a1b295c6/1000x1000-000000-80-0-0.jpg",
-            "nb_album": 44,
-            "nb_fan": 14445125,
-            "radio": true,
-            "tracklist": "https://api.deezer.com/artist/13/top?limit=50",
-            "time_add": 1629468654,
-            "type": "artist"
+            id: 13,
+            name: "Eminem",
+            picture_xl: "https://cdns-images.dzcdn.net/images/artist/0707267475580b1b82f4da20a1b295c6/1000x1000-000000-80-0-0.jpg",
+            nb_fan: 14445125
         }
     ]
-}
-
-const errorResponse = {
-    "error": {
-        "type": "OAuthException",
-        "message": "Invalid OAuth access token.",
-        "code": 300
-    }
 }
 
 describe('FavoriteArtistsService', () => {
@@ -77,18 +60,9 @@ describe('FavoriteArtistsService', () => {
         expect(request.request.method).toEqual('GET');
     });
 
-    it('should throw error and return error message when api responds with error', (done: DoneFn) => {
-        service.getFavoriteArtists().subscribe(response => {
-            expect(response).toBeInstanceOf(Error);
-            done();
-        });
-        const request = httpTestingController.expectOne(API_BASE_URL + '/user/me/artists?access_token=' + service.token);
-        request.flush(errorResponse);
-    });
-
     it('should return list of artists when api responds with success', (done: DoneFn) => {
         service.getFavoriteArtists().subscribe(response => {
-            expect(response.length).toEqual(1);
+            expect(response).toEqual(successResponse.data as Artist[]);
             done();
         });
         const request = httpTestingController.expectOne(API_BASE_URL + '/user/me/artists?access_token=' + service.token);
