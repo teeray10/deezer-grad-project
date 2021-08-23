@@ -1,0 +1,25 @@
+<div class="container">
+    <mat-tab-group>
+        <mat-tab label="All">
+            <div class="all-tab-container">
+                <div class="top-result">
+                    [Top Result Placeholder]
+                </div>
+                <div class="tracks">
+                    [Tracks Placeholder]
+                </div>
+                <div class="albums">
+                    [Albums Placeholder]
+                </div>
+                <div class="artists">
+                    [Artists Placeholder]
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="{{tab}}" *ngFor="let tab of tabs">
+            <div class="{{tab}}-tab-container">
+                [{{tab}} Placeholder]
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>
