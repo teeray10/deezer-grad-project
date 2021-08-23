@@ -1,12 +1,12 @@
 <div class="container">
     <h2>Your favorite albums</h2>
     <div class="albums-container">
-        <mat-card class="album-card mat-elevation-z2" *ngFor="let album of [].constructor(5); let i = index">
-            <img mat-card-image src="../../../assets/images/placeholder-image.jpg" alt="Album cover">
+        <mat-card class="album-card mat-elevation-z2" *ngFor="let album of favoriteAlbums$ | async">
+            <img mat-card-image src="{{album.cover_xl}}" alt="Album cover">
             <mat-card-content>
-                <h4>Album name</h4>
-                <h5>By</h5>
-                <h5>Released</h5>
+                <h4 id="album-title">{{album.title}}</h4>
+                <h5>by {{album.artist.name}}</h5>
+                <h5 id="release-date">released {{album.release_date}}</h5>
             </mat-card-content>
         </mat-card>
     </div>
