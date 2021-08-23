@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Album } from 'src/app/models/album';
 
 @Component({
   selector: 'app-albums',
@@ -6,4 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./albums.component.scss']
 })
 export class AlbumsComponent {
+    @Input() albums$!: Observable<Album[]>;
 }

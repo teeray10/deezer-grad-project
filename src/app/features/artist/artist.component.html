@@ -1,20 +1,20 @@
 <div class="container">
-    <div class="artist-profile">
+    <div class="artist-profile" >
         <div class="artist-picture">
-            <img src="https://via.placeholder.com/250" alt="Picture of artist"/>
+            <img src="{{selectedArtist.picture_xl}}" alt="Picture of artist"/>
         </div>
         <div class="artist-info">
-            <h1>Artist Name</h1>
-            <h5>Number of fans</h5> 
+            <h1>{{selectedArtist.name}}</h1>
+            <h5>{{selectedArtist.nb_fan | number}} fans</h5> 
         </div>
     </div>
     <div class="artist-content">
         <mat-tab-group>
             <mat-tab label="Tracks">
-                <app-tracks></app-tracks>
+                <app-tracks [topTracks$]="topTracks$"></app-tracks>
             </mat-tab>
             <mat-tab label="Albums">
-                <app-albums></app-albums>
+                <app-albums [albums$]="albums$"></app-albums>
             </mat-tab>
         </mat-tab-group>
     </div>
