@@ -12,14 +12,19 @@
     display: flex;
     height: 35%;
     align-items: center;
+    margin: 2% 0;
 }
 
 .artist-picture {
     margin-right: 1%;
+    height: 100%;
 }
 
 .artist-picture img {
+    display: inline-block;
     border-radius: 50%;
+    width: auto;
+    height: 100%;
 }
 
 .artist-info h1 {

@@ -16,6 +16,14 @@ const successResponse = {
     ]
 }
 
+const errorResponse = {
+    "error": {
+        "type": "OAuthException",
+        "message": "Invalid OAuth access token.",
+        "code": 300
+    }
+}
+
 describe('FavoriteArtistsService', () => {
     let service: FavoriteArtistsService;
     let httpTestingController: HttpTestingController;
