@@ -11,25 +11,26 @@ import { OauthService } from './oauth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class ArtistService {
+export class SearchService {
     token: string | null = '';
 
     constructor(private httpClient: HttpClient, private oauthService: OauthService) { }
     
-    getSelectedArtist(id: string | null): Observable<Artist> {
+    searchTracks(searchTerm: string | null): Observable<Track[]> {
         this.token = this.oauthService.getToken();
-        return this.httpClient.get<Artist>(API_BASE_URL + '/artist/' + id + '?access_token=' + this.token);
-    }
-
-    getTopTracks(id: string | null): Observable<Track[]> {
-        this.token = this.oauthService.getToken();
-        return this.httpClient.get<any>(API_BASE_URL + '/artist/' + id + '/top?limit=50&access_token=' + this.token)
+        return this.httpClient.get<any>(API_BASE_URL + '/search/track?q=' + searchTerm + '&order=ranking&access_token=' + this.token)
             .pipe(map(response => response.data as Track[]));
     }
-
-    getAlbums(id: string | null): Observable<Album[]> {
+    
+    searchArtists(searchTerm: string | null): Observable<Artist[]> {
         this.token = this.oauthService.getToken();
-        return this.httpClient.get<any>(API_BASE_URL + '/artist/' + id + '/albums&access_token=' + this.token)
+        return this.httpClient.get<any>(API_BASE_URL + '/search/artist?q=' + searchTerm + '&order=ranking&access_token=' + this.token)
+            .pipe(map(response => response.data as Artist[]));
+    }
+    
+    searchAlbums(searchTerm: string | null): Observable<Album[]> {
+        this.token = this.oauthService.getToken();
+        return this.httpClient.get<any>(API_BASE_URL + '/search/album?q=' + searchTerm + '&order=ranking&access_token=' + this.token)
             .pipe(map(response => response.data as Album[]));
     }
 }

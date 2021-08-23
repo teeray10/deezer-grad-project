@@ -1,19 +1,12 @@
 @import '../../../styles.scss';
 
-.title-container {
-    display: flex;
-    align-items: flex-end;
-    height: 70px;
-}
-
-.albums-container {
+.container {
     display: flex;
     flex-wrap: wrap;
-    padding: 1%;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 20px;
 }
 
 .album-card {
-    width: 20%;
+    width: calc((100% / 5) - 48px); // ((Parent Width / Number per row) - padding)
 }

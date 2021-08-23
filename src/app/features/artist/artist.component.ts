@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Album } from 'src/app/models/album';
 import { Artist } from 'src/app/models/artist';
-import { ArtistTopTrack } from 'src/app/models/artist-top-tracks';
+import { Track } from 'src/app/models/track';
 import { ArtistService } from 'src/app/services/artist.service';
 
 @Component({
@@ -13,8 +13,8 @@ import { ArtistService } from 'src/app/services/artist.service';
 })
 export class ArtistComponent implements OnInit {
     artistId: string | null = '';
-    topTracks$!: Observable<ArtistTopTrack[]>;
-    albums$!: Observable<Album[]>;
+    tracks: Track[] = [];
+    albums: Album[] = [];
     selectedArtist!: Artist;
 
     constructor(private artistService: ArtistService, private activatedRoute: ActivatedRoute) {
@@ -23,8 +23,8 @@ export class ArtistComponent implements OnInit {
     ngOnInit(): void {
         this.artistId = this.getParamId();
         this.getSelectedArtist();
-        this.topTracks$ = this.getTopTracks();
-        this.albums$ = this.getAlbums();
+        this.getTopTracks();
+        this.getAlbums();
     }
 
     getParamId(): string | null {
@@ -36,11 +36,13 @@ export class ArtistComponent implements OnInit {
             .subscribe(artist => this.selectedArtist = artist);
     }
     
-    getTopTracks(): Observable<ArtistTopTrack[]> {
-        return this.artistService.getTopTracks(this.artistId);
+    getTopTracks(): void {
+        this.artistService.getTopTracks(this.artistId)
+            .subscribe(tracks => this.tracks = tracks);
     }
 
-    getAlbums(): Observable<Album[]> {
-        return this.artistService.getAlbums(this.artistId);
+    getAlbums(): void {
+        this.artistService.getAlbums(this.artistId)
+            .subscribe(albums => this.albums = albums);
     }
 }

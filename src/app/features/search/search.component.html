@@ -3,22 +3,28 @@
         <mat-tab label="All">
             <div class="all-tab-container">
                 <div class="top-result">
-                    [Top Result Placeholder]
+                    <h1>Top Result</h1>
+                    <app-artists [artists]="artists" [showLimit]="1"></app-artists>
                 </div>
                 <div class="tracks">
-                    [Tracks Placeholder]
+                    <h1>Tracks</h1>
+                    <app-tracks [tracks]="tracks" [showLimit]="5"></app-tracks>
                 </div>
                 <div class="albums">
-                    [Albums Placeholder]
+                    <h1>Albums</h1>
+                    <app-albums [albums]="albums" [showLimit]="5"></app-albums>
                 </div>
                 <div class="artists">
-                    [Artists Placeholder]
+                    <h1>Artists</h1>
+                    <app-artists [artists]="artists" [showLimit]="5"></app-artists>
                 </div>
             </div>
         </mat-tab>
         <mat-tab label="{{tab}}" *ngFor="let tab of tabs">
             <div class="{{tab}}-tab-container">
-                [{{tab}} Placeholder]
+                <app-tracks *ngIf="tab === 'Tracks'" [tracks]="tracks"></app-tracks>
+                <app-albums *ngIf="tab === 'Albums'" [albums]="albums"></app-albums>
+                <app-artists *ngIf="tab === 'Artists'" [artists]="artists"></app-artists>
             </div>
         </mat-tab>
     </mat-tab-group>

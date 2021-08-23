@@ -11,10 +11,10 @@
     <div class="artist-content">
         <mat-tab-group>
             <mat-tab label="Tracks">
-                <app-tracks [topTracks$]="topTracks$"></app-tracks>
+                <app-tracks [tracks]="tracks"></app-tracks>
             </mat-tab>
             <mat-tab label="Albums">
-                <app-albums [albums$]="albums$"></app-albums>
+                <app-albums [albums]="albums"></app-albums>
             </mat-tab>
         </mat-tab-group>
     </div>

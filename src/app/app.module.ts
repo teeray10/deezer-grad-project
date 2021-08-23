@@ -12,7 +12,7 @@ import { HomeComponent } from './features/home/home.component';
 import { NavbarComponent } from './features/navbar/navbar.component';
 import { ArtistComponent } from './features/artist/artist.component';
 import { AlbumsComponent } from './features/albums/albums.component';
-import { FavoriteArtistsComponent } from './features/favorite-artists/favorite-artists.component';
+import { ArtistsComponent } from './features/artists/artists.component';
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 
 // Material Modules
@@ -36,7 +36,7 @@ import { SearchComponent } from './features/search/search.component';
         ArtistComponent,
         TracksComponent,
         AlbumsComponent,
-        FavoriteArtistsComponent,
+        ArtistsComponent,
         FavoriteAlbumsComponent,
         SearchComponent
     ],
