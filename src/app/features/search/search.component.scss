@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mat-tab-group {
+    width: 80%;
+}
+
+$tabs: (
+    "all",
+    "Artists",
+    "Tracks",
+    "Albums"
+);
+
+@each $tabName in $tabs {
+    .#{$tabName}-tab-container {
+        background-color: red;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
