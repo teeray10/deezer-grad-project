@@ -1,11 +1,9 @@
 
 <div class="container">
-    <h2>Your Favorite Artists</h2>
-    <div class="artists-container">
-        <div class="artist-container" *ngFor="let artist of favoriteArtists$ | async">
+        <!-- if limit is specified, show that many artists -->
+        <div class="artist-container" *ngFor="let artist of (showLimit ? (artists | slice:0:showLimit) : artists)">
             <img src="{{artist.picture_xl}}" alt="Artist picture"/>
             <h4>{{artist.name}}</h4>
             <h5>{{artist.nb_fan | number}} fans</h5>
         </div>
-    </div>
 </div>

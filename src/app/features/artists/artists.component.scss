@@ -4,21 +4,34 @@
     width: 100%;
 }
 
-.artists-container {
+.container {
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .artist-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    justify-content: center;
+    width: 20%;
+    height: 350px;
+}
+
+.artist-container h4 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.artist-container > * {
+    width: 90%;
+    text-align: center;
 }
 
 .artist-container img {
     border-radius: 50%;
     display: inline-block;
-    width: 90%;
     height: auto;
 }

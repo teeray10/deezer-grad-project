@@ -1,11 +1,5 @@
-<div class="filter-bar">
-    <h1>Top Tracks</h1>
-    <mat-form-field appearance="standard">
-        <input matInput placeholder="Filter" #input>
-    </mat-form-field>
-</div>
 <div class="table-container">
-    <table mat-table [dataSource]="topTracks$" matSort>
+    <table mat-table [dataSource]="(showLimit ? (tracks | slice:0:showLimit) : tracks)" matSort>
         <ng-container matColumnDef="number">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>#</th>
             <td mat-cell *matCellDef="let track; let i = index">{{i + 1}}</td>

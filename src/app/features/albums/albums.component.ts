@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Album } from 'src/app/models/album';
 
 @Component({
@@ -8,5 +7,6 @@ import { Album } from 'src/app/models/album';
   styleUrls: ['./albums.component.scss']
 })
 export class AlbumsComponent {
-    @Input() albums$!: Observable<Album[]>;
+    @Input() albums: Album[] = [];
+    @Input() showLimit!: number;
 }

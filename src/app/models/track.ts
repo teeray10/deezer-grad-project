@@ -1,33 +1,12 @@
 export interface Track {
-    track: string,
-    artist: string,
-    album: string
-}
-
-export const dummyData: Track[] = [
-    {
-        track: 'Track 1',
-        artist: 'Artist',
-        album: 'Album'
+    id: number,
+    title: string,
+    artist: {
+        id: number,
+        name: string
     },
-    {
-        track: 'Track 2',
-        artist: 'Artist',
-        album: 'Album'
-    },
-    {
-        track: 'Track 3',
-        artist: 'Artist',
-        album: 'Album'
-    },
-    {
-        track: 'Track 4',
-        artist: 'Artist',
-        album: 'Album'
-    },
-    {
-        track: 'Track 5',
-        artist: 'Artist',
-        album: 'Album'
+    album: {
+        id: number,
+        title: string
     }
-]
+}

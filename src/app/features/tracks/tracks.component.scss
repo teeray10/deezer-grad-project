@@ -1,16 +1,7 @@
 @import '../../../styles.scss';
 
-.filter-bar {
-    display: flex;
-    align-items: flex-end;
-}
-
-.filter-bar h1 {
-    width: 85%;
-}
-
-.mat-form-field {
-    font-size: 14px;
+:host {
+    width: 100%;
 }
 
 table {

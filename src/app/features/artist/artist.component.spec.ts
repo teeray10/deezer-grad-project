@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
-import { Album } from 'src/app/models/album';
-import { Artist } from 'src/app/models/artist';
-import { ArtistTopTrack } from 'src/app/models/artist-top-tracks';
-import { ArtistService } from 'src/app/services/artist.service';
+import { Album } from '../../models/album';
+import { Artist } from '../../models/artist';
+import { Track } from '../../models/track';
+import { ArtistService } from '../../services/artist.service';
 
 import { ArtistComponent } from './artist.component';
 
@@ -15,7 +15,7 @@ const artistInfoResponse: Artist = {
     'nb_fan': 4084307
 }
 
-const topTracksResponse: ArtistTopTrack[] = [
+const topTracksResponse: Track[] = [
     {
         "id": 3135553,
         "title": "One More Time",
@@ -69,6 +69,8 @@ describe('ArtistComponent', () => {
 
     beforeEach(() => {
         artistServiceSpy.getSelectedArtist.and.returnValue(of([]));
+        artistServiceSpy.getAlbums.and.returnValue(of([]));
+        artistServiceSpy.getTopTracks.and.returnValue(of([]));
         fixture = TestBed.createComponent(ArtistComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
@@ -88,23 +90,15 @@ describe('ArtistComponent', () => {
         expect(component.selectedArtist).toEqual(artistInfoResponse);
     });
 
-    it('should populate albums$ if getAlbums response is success', (done: DoneFn) => {
+    it('should populate albums if getAlbums response is success', () => {
         artistServiceSpy.getAlbums.and.returnValue(of(albumsResponse));
-        component.getAlbums().subscribe(
-            albums => {
-                expect(albums).toEqual(albumsResponse);
-                done();
-            }            
-        );
+        component.getAlbums();
+        expect(component.albums).toEqual(albumsResponse);
     });
 
-    it('should populate topTracks$ if getTopTracks response is success', (done: DoneFn) => {
+    it('should populate tracks if getTopTracks response is success', () => {
         artistServiceSpy.getTopTracks.and.returnValue(of(topTracksResponse));
-        component.getTopTracks().subscribe(
-            topTracks => {
-                expect(topTracks).toEqual(topTracksResponse);
-                done();
-            }            
-        );
+        component.getTopTracks();
+        expect(component.tracks).toEqual(topTracksResponse);
     });
 });

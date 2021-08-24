@@ -45,7 +45,7 @@ describe('FavoriteArtistsService', () => {
 
     afterEach(() => {
         httpTestingController.verify(); // Check that there are no outstanding requests
-    })
+    });
 
     it('should be created', () => {
         expect(service).toBeTruthy();
