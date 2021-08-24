@@ -1,10 +1,9 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { Album } from '../models/album';
-import { API_BASE_URL } from '../oauth-config';
-
 import { FavoriteAlbumsService } from './favorite-albums.service';
 import { OauthService } from './oauth.service';
+import { environment } from '../../environments/environment';
 
 const successResponse = {
     data: [
@@ -54,13 +53,13 @@ describe('FavoriteAlbumsService', () => {
 
     it('httpClient.get should be called', () => {
         service.getFavoriteAlbums().subscribe();
-        const request = httpTestingController.expectOne(API_BASE_URL + '/user/me/albums?access_token=' + service.token);
+        const request = httpTestingController.expectOne(environment.oAuthConfig.API_BASE_URL + '/user/me/albums?access_token=' + service.token);
         expect(request).toBeTruthy();
     });
 
     it('httpClient.get should use GET method', () => {
         service.getFavoriteAlbums().subscribe();
-        const request = httpTestingController.expectOne(API_BASE_URL + '/user/me/albums?access_token=' + service.token);
+        const request = httpTestingController.expectOne(environment.oAuthConfig.API_BASE_URL + '/user/me/albums?access_token=' + service.token);
         expect(request.request.method).toEqual('GET');
     });
 
@@ -69,7 +68,7 @@ describe('FavoriteAlbumsService', () => {
             expect(response).toEqual(successResponse.data as Album[]);
             done();
         });
-        const request = httpTestingController.expectOne(API_BASE_URL + '/user/me/albums?access_token=' + service.token);
+        const request = httpTestingController.expectOne(environment.oAuthConfig.API_BASE_URL + '/user/me/albums?access_token=' + service.token);
         request.flush(successResponse);
     });
 });

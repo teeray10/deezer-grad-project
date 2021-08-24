@@ -2,7 +2,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { TestBed } from '@angular/core/testing';
 import { FavoriteArtistsService } from './favorite-artists.service';
 import { OauthService } from './oauth.service';
-import { API_BASE_URL } from '../oauth-config';
+import { environment } from '../../environments/environment';
 import { Artist } from '../models/artist';
 
 const successResponse = {
@@ -58,13 +58,13 @@ describe('FavoriteArtistsService', () => {
 
     it('httpClient.get should be called', () => {
         service.getFavoriteArtists().subscribe();
-        const request = httpTestingController.expectOne(API_BASE_URL + '/user/me/artists?access_token=' + service.token);
+        const request = httpTestingController.expectOne(environment.oAuthConfig.API_BASE_URL + '/user/me/artists?access_token=' + service.token);
         expect(request).toBeTruthy();
     });
 
     it('httpClient.get should use GET method', () => {
         service.getFavoriteArtists().subscribe();
-        const request = httpTestingController.expectOne(API_BASE_URL + '/user/me/artists?access_token=' + service.token);
+        const request = httpTestingController.expectOne(environment.oAuthConfig.API_BASE_URL + '/user/me/artists?access_token=' + service.token);
         expect(request.request.method).toEqual('GET');
     });
 
@@ -73,7 +73,7 @@ describe('FavoriteArtistsService', () => {
             expect(response).toEqual(successResponse.data as Artist[]);
             done();
         });
-        const request = httpTestingController.expectOne(API_BASE_URL + '/user/me/artists?access_token=' + service.token);
+        const request = httpTestingController.expectOne(environment.oAuthConfig.API_BASE_URL + '/user/me/artists?access_token=' + service.token);
         request.flush(successResponse);
     });
 });

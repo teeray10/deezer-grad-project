@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import { Album } from '../models/album';
 import { Artist } from '../models/artist';
 import { Track } from '../models/track';
-import { API_BASE_URL } from '../oauth-config';
+import { environment } from '../../environments/environment';
 import { OauthService } from './oauth.service';
 
 @Injectable({
@@ -18,18 +18,18 @@ export class ArtistService {
     
     getSelectedArtist(id: string | null): Observable<Artist> {
         this.token = this.oauthService.getToken();
-        return this.httpClient.get<Artist>(API_BASE_URL + '/artist/' + id + '?access_token=' + this.token);
+        return this.httpClient.get<Artist>(environment.oAuthConfig.API_BASE_URL + '/artist/' + id + '?access_token=' + this.token);
     }
 
     getTopTracks(id: string | null): Observable<Track[]> {
         this.token = this.oauthService.getToken();
-        return this.httpClient.get<any>(API_BASE_URL + '/artist/' + id + '/top?limit=50&access_token=' + this.token)
+        return this.httpClient.get<any>(environment.oAuthConfig.API_BASE_URL + '/artist/' + id + '/top?limit=50&access_token=' + this.token)
             .pipe(map(response => response.data as Track[]));
     }
 
     getAlbums(id: string | null): Observable<Album[]> {
         this.token = this.oauthService.getToken();
-        return this.httpClient.get<any>(API_BASE_URL + '/artist/' + id + '/albums&access_token=' + this.token)
+        return this.httpClient.get<any>(environment.oAuthConfig.API_BASE_URL + '/artist/' + id + '/albums&access_token=' + this.token)
             .pipe(map(response => response.data as Album[]));
     }
 }
