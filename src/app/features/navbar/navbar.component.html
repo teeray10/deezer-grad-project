@@ -1,10 +1,16 @@
 <mat-toolbar>
     <div class="logo">
-        <img src="../../../assets/images/deezer-logo.svg" alt="Deezer Logo"/>
+        <img src="../../../assets/images/deezer-logo.svg" alt="Deezer Logo" (click)="routeHome()"/>
     </div>
     <div class="search-bar">
-        <img src="../../../assets/icons/search-icon.svg" alt="Search Icon"/>
-        <input id="search-input" type="text" placeholder="Search" [(ngModel)]="value" name="searchInput">
-        <img *ngIf="value" src="../../../assets/icons/clear-icon.svg" alt="Clear Icon" (click)="clearInput()"/>
+        <img id="search-icon" src="../../../assets/icons/search-icon.svg" alt="Search Icon" (click)="submitSearch()"/>
+        <input
+            id="search-input"
+            type="text"
+            placeholder="Search"
+            [(ngModel)]="value"
+            name="searchInput"
+            (keyup.enter)="submitSearch()"/>
+        <img id="clear-icon" *ngIf="value" src="../../../assets/icons/clear-icon.svg" alt="Clear Icon" (click)="clearInput()"/>
     </div>
 </mat-toolbar>
