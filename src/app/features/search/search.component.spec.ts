@@ -18,11 +18,9 @@ describe('SearchComponent', () => {
                 {
                     provide: ActivatedRoute,
                     useValue: {
-                        snapshot: {
-                            paramMap: {
-                                get: () => '27'
-                            }
-                        }
+                        paramMap: of({
+                            get: () => '27'
+                        })
                     }
                 }
             ]
