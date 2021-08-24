@@ -26,12 +26,20 @@
 }
 
 .artist-container > * {
-    width: 90%;
     text-align: center;
 }
 
-.artist-container img {
+#artist-picture {
     border-radius: 50%;
     display: inline-block;
+    width: 90%;
     height: auto;
+}
+
+#artist-picture, #artist-name {
+    cursor: pointer;
+}
+
+#artist-name:hover {
+    text-decoration: underline;
 }
