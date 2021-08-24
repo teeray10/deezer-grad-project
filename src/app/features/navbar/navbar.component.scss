@@ -20,6 +20,10 @@ mat-toolbar {
     max-height: 100%;
 }
 
+.logo img:hover, #search-icon, #clear-icon {
+    cursor: pointer;
+}
+
 .search-bar {
     display: flex;
     margin-left: 2%;
