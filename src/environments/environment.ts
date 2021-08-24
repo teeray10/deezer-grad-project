@@ -4,12 +4,12 @@
 
 export const environment = {
     production: false,
-    oAuthConfig: {
+    api: {
         RESPONSE_TYPE: 'token',
         APP_ID: 498142,
         REDIRECT_URI: 'http://localhost:4200',
         PERMISSIONS: 'basic_access, offline_access',
-        API_BASE_URL: 'https://cors-anywhere.herokuapp.com/https://api.deezer.com'
+        PROXY_URL: 'http://localhost:8080/api'
     }
 };
 

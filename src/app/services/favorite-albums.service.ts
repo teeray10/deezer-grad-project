@@ -16,7 +16,7 @@ export class FavoriteAlbumsService {
     
     getFavoriteAlbums(): Observable<Album[]> {
         this.token = this.oauthService.getToken();
-        return this.httpClient.get<any>(environment.oAuthConfig.API_BASE_URL + '/user/me/albums?access_token=' + this.token)
+        return this.httpClient.get<any>(environment.api.PROXY_URL + '/user/me/albums?access_token=' + this.token)
             .pipe(map(response => response.data as Album[])); // Extracts array from response object
     }
 }

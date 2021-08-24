@@ -58,13 +58,13 @@ describe('FavoriteArtistsService', () => {
 
     it('httpClient.get should be called', () => {
         service.getFavoriteArtists().subscribe();
-        const request = httpTestingController.expectOne(environment.oAuthConfig.API_BASE_URL + '/user/me/artists?access_token=' + service.token);
+        const request = httpTestingController.expectOne(environment.api.PROXY_URL + '/user/me/artists?access_token=' + service.token);
         expect(request).toBeTruthy();
     });
 
     it('httpClient.get should use GET method', () => {
         service.getFavoriteArtists().subscribe();
-        const request = httpTestingController.expectOne(environment.oAuthConfig.API_BASE_URL + '/user/me/artists?access_token=' + service.token);
+        const request = httpTestingController.expectOne(environment.api.PROXY_URL + '/user/me/artists?access_token=' + service.token);
         expect(request.request.method).toEqual('GET');
     });
 
@@ -73,7 +73,7 @@ describe('FavoriteArtistsService', () => {
             expect(response).toEqual(successResponse.data as Artist[]);
             done();
         });
-        const request = httpTestingController.expectOne(environment.oAuthConfig.API_BASE_URL + '/user/me/artists?access_token=' + service.token);
+        const request = httpTestingController.expectOne(environment.api.PROXY_URL + '/user/me/artists?access_token=' + service.token);
         request.flush(successResponse);
     });
 });

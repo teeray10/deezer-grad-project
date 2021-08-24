@@ -16,7 +16,7 @@ export class FavoriteArtistsService {
     
     getFavoriteArtists(): Observable<Artist[]> {
         this.token = this.oauthService.getToken();
-        return this.httpClient.get<any>(environment.oAuthConfig.API_BASE_URL + '/user/me/artists?access_token=' + this.token)
+        return this.httpClient.get<any>(environment.api.PROXY_URL + '/user/me/artists?access_token=' + this.token)
             .pipe(map(response => response.data as Artist[])); // Extracts array from response object
     }
 }
