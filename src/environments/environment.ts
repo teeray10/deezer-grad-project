@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+    production: false,
+    oAuthConfig: {
+        RESPONSE_TYPE: 'token',
+        APP_ID: 498142,
+        REDIRECT_URI: 'http://localhost:4200',
+        PERMISSIONS: 'basic_access, offline_access',
+        API_BASE_URL: 'https://cors-anywhere.herokuapp.com/https://api.deezer.com'
+    }
 };
 
 /*

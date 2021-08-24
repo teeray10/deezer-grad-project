@@ -1,9 +1,9 @@
 <div class="container">
-    <div class="favorite-artists" *ngIf="favoriteArtists.length > 0">
+    <div class="favorite-artists" *ngIf="favoriteArtists && favoriteArtists.length > 0">
         <h1>Your favorite artists</h1>
         <app-artists [artists]="favoriteArtists" [showLimit]="5"></app-artists>
     </div>
-    <div class="favorite-albums" *ngIf="favoriteAlbums.length > 0">
+    <div class="favorite-albums" *ngIf="favoriteArtists && favoriteAlbums.length > 0">
         <h1>Your favorite albums</h1>
         <app-albums [albums]="favoriteAlbums" [showLimit]="5"></app-albums>
     </div>
