@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Artist } from '../../models/artist';
 
 @Component({
@@ -9,4 +10,10 @@ import { Artist } from '../../models/artist';
 export class ArtistsComponent {
     @Input() artists: Artist[] = [];
     @Input() showLimit!: number;
+
+    constructor(private router: Router) { }
+
+    routeToArtist(id: number): void {
+        this.router.navigate(['artist', id]);
+    }
 }

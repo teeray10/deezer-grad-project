@@ -2,8 +2,16 @@
 <div class="container">
         <!-- if limit is specified, show that many artists -->
         <div class="artist-container" *ngFor="let artist of (showLimit ? (artists | slice:0:showLimit) : artists)">
-            <img src="{{artist.picture_xl}}" alt="Artist picture"/>
-            <h4>{{artist.name}}</h4>
+            <img
+                id="artist-picture"
+                src="{{artist.picture_xl}}"
+                alt="Artist picture"
+                (click)="routeToArtist(artist.id)"/>
+            <h4
+                id="artist-name"
+                (click)="routeToArtist(artist.id)">
+                {{artist.name}}
+            </h4>
             <h5>{{artist.nb_fan | number}} fans</h5>
         </div>
 </div>
