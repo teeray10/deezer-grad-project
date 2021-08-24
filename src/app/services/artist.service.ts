@@ -18,18 +18,24 @@ export class ArtistService {
     
     getSelectedArtist(id: string | null): Observable<Artist> {
         this.token = this.oauthService.getToken();
-        return this.httpClient.get<Artist>(environment.oAuthConfig.API_BASE_URL + '/artist/' + id + '?access_token=' + this.token);
-    }
+        const url = environment.api.PROXY_URL + '/artist/' + id + '?access_token=' + this.token;
 
+        return this.httpClient.get<Artist>(url);
+    }
+    
     getTopTracks(id: string | null): Observable<Track[]> {
         this.token = this.oauthService.getToken();
-        return this.httpClient.get<any>(environment.oAuthConfig.API_BASE_URL + '/artist/' + id + '/top?limit=50&access_token=' + this.token)
+        const url = environment.api.PROXY_URL + '/artist/' + id + '/top?limit=5&access_token=' + this.token;
+
+        return this.httpClient.get<any>(url)
             .pipe(map(response => response.data as Track[]));
     }
-
+    
     getAlbums(id: string | null): Observable<Album[]> {
         this.token = this.oauthService.getToken();
-        return this.httpClient.get<any>(environment.oAuthConfig.API_BASE_URL + '/artist/' + id + '/albums&access_token=' + this.token)
+        const url = environment.api.PROXY_URL + '/artist/' + id + '/albums&access_token=' + this.token;
+
+        return this.httpClient.get<any>(url)
             .pipe(map(response => response.data as Album[]));
     }
 }

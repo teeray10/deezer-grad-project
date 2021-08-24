@@ -14,9 +14,9 @@ export class SignInComponent {
 
     buildURL(): string {
         return this.baseOAuthURL +
-            '?response_type=' + environment.oAuthConfig.RESPONSE_TYPE +
-            '&app_id=' + environment.oAuthConfig.APP_ID +
-            '&redirect_uri=' + environment.oAuthConfig.REDIRECT_URI +
-            '&perms=' + environment.oAuthConfig.PERMISSIONS;
+            '?response_type=' + environment.api.RESPONSE_TYPE +
+            '&app_id=' + environment.api.APP_ID +
+            '&redirect_uri=' + environment.api.REDIRECT_URI +
+            '&perms=' + environment.api.PERMISSIONS;
     }
 }
