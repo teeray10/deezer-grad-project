@@ -53,13 +53,13 @@ describe('FavoriteAlbumsService', () => {
 
     it('httpClient.get should be called', () => {
         service.getFavoriteAlbums().subscribe();
-        const request = httpTestingController.expectOne(environment.oAuthConfig.API_BASE_URL + '/user/me/albums?access_token=' + service.token);
+        const request = httpTestingController.expectOne(environment.api.PROXY_URL + '/user/me/albums?access_token=' + service.token);
         expect(request).toBeTruthy();
     });
 
     it('httpClient.get should use GET method', () => {
         service.getFavoriteAlbums().subscribe();
-        const request = httpTestingController.expectOne(environment.oAuthConfig.API_BASE_URL + '/user/me/albums?access_token=' + service.token);
+        const request = httpTestingController.expectOne(environment.api.PROXY_URL + '/user/me/albums?access_token=' + service.token);
         expect(request.request.method).toEqual('GET');
     });
 
@@ -68,7 +68,7 @@ describe('FavoriteAlbumsService', () => {
             expect(response).toEqual(successResponse.data as Album[]);
             done();
         });
-        const request = httpTestingController.expectOne(environment.oAuthConfig.API_BASE_URL + '/user/me/albums?access_token=' + service.token);
+        const request = httpTestingController.expectOne(environment.api.PROXY_URL + '/user/me/albums?access_token=' + service.token);
         request.flush(successResponse);
     });
 });
