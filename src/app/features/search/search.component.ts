@@ -32,31 +32,35 @@ export class SearchComponent implements OnInit, OnDestroy {
             });
     }
     
-    searchTracks(): void {
+    private searchTracks(): void {
         this.searchService.searchTracks(this.searchTerm)
             .pipe(takeUntil(this.unsubscribe$))
             .subscribe(tracks => this.tracks = tracks);
     }
     
-    searchAlbums(): void {
+    private searchAlbums(): void {
         this.searchService.searchAlbums(this.searchTerm)
             .pipe(takeUntil(this.unsubscribe$))
             .subscribe(albums => this.albums = albums);
     }
     
-    searchArtists(): void {
+    private searchArtists(): void {
         this.searchService.searchArtists(this.searchTerm)
             .pipe(takeUntil(this.unsubscribe$))
             .subscribe(artists => this.artists = artists);
     }
 
-    subscribeAll(): void {
+    isSearchSuccess(): boolean {
+        return (this.tracks.length > 0 && this.albums.length > 0 && this.artists.length > 0) ? true : false;
+    }
+
+    private subscribeAll(): void {
         this.searchTracks();
         this.searchArtists();
         this.searchAlbums();
     }
     
-    unsubscribeAll(): void {
+    private unsubscribeAll(): void {
         this.unsubscribe$.next();
     }
     
