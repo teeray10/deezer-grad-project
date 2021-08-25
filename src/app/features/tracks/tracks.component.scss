@@ -8,6 +8,14 @@ table {
     width: 100%;
 }
 
+.mat-column {
+    padding: 0 !important;
+}
+
+th.mat-column-number, td.mat-column-number {
+    text-align: center;
+}
+
 $columns: (
     "number": 5%,
     "track": 40%,
@@ -18,5 +26,6 @@ $columns: (
 @each $heading, $width in $columns {
     .mat-column-#{$heading} {
         width: $width;
+        padding: 0 !important;
     }
 }

@@ -3,6 +3,7 @@
 mat-toolbar {
     display: flex;
     align-items: center;
+    padding: 0;
     background: $light;
 }
 
@@ -18,7 +19,10 @@ mat-toolbar {
     display: inline-block;
     width: 50%;
     height: auto;
-    max-height: 100%;
+
+    @include screen-mobile {
+        width: 80%;
+    }
 }
 
 .logo img:hover, #search-icon, #clear-icon {

@@ -1,4 +1,5 @@
 @import '../styles.scss';
+$navbar-height: 64px;
 
 .container {
     height: 100%;
@@ -9,7 +10,7 @@
 
 .navbar {
     width: 100%;
-    height: 64px;
+    height: $navbar-height;
     border-bottom: 1px solid $medium;
 }
 
@@ -18,9 +19,10 @@
     flex-direction: column;
     justify-content: center;
     width: 80%;
-}
+    padding: 40px 0;
+    height: calc(100% - $navbar-height);
 
-.content > * {
-    margin-top: 16px;
-    margin-bottom: 20px;
+    @include screen-mobile {
+        width: 95%;
+    }
 }

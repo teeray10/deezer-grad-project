@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="artist-profile" >
+    <div class="artist-profile" *ngIf="selectedArtist">
         <div class="artist-picture">
             <img src="{{selectedArtist.picture_xl}}" alt="Picture of artist"/>
         </div>
@@ -14,7 +14,7 @@
                 <app-tracks [tracks]="tracks"></app-tracks>
             </mat-tab>
             <mat-tab label="Albums">
-                <app-albums [albums]="albums"></app-albums>
+                <app-albums [albums]="albums" [showLimit]="10"></app-albums>
             </mat-tab>
         </mat-tab-group>
     </div>
