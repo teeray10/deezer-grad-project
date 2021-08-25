@@ -12,11 +12,13 @@ import { AuthenticatedUserModule } from './features/authenticated-user/authentic
 
 // Material Modules
 import { MatButtonModule } from '@angular/material/button';
+import { AlbumComponent } from './features/album/album.component';
 
 @NgModule({
   declarations: [
         AppComponent,
-        SignInComponent
+        SignInComponent,
+        AlbumComponent
     ],
     imports: [
         BrowserModule,
