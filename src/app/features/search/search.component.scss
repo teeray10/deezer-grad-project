@@ -29,9 +29,13 @@ $tabs: (
 .all-tab-container > * {
     width: 100%;
     margin: 2% 0;
+
+    @include screen-mobile {
+        margin: 5% 0;
+    }
 }
 
 .top-result {
     border-bottom: 1px solid $medium;
-    padding-bottom: 1%;
+    padding: 1% 0;
 }

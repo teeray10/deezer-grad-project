@@ -21,13 +21,13 @@ export class ArtistComponent implements OnInit {
     }
     
     ngOnInit(): void {
-        this.artistId = this.getParamId();
+        this.artistId = this.getArtistId();
         this.getSelectedArtist();
         this.getTopTracks();
         this.getAlbums();
     }
 
-    getParamId(): string | null {
+    getArtistId(): string | null {
         return this.activatedRoute.snapshot.paramMap.get('id');
     }
 

@@ -1,8 +1,8 @@
 <div class="table-container">
     <table mat-table [dataSource]="(showLimit ? (tracks | slice:0:showLimit) : tracks)" matSort>
         <ng-container matColumnDef="number">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>#</th>
-            <td mat-cell *matCellDef="let track; let i = index">{{i + 1}}</td>
+            <th [hidden]="screenWidth <= 576" mat-header-cell *matHeaderCellDef mat-sort-header>#</th>
+            <td [hidden]="screenWidth <= 576" mat-cell *matCellDef="let track; let i = index">{{i + 1}}</td>
         </ng-container>
 
         <ng-container matColumnDef="track">
@@ -11,8 +11,8 @@
         </ng-container>
 
         <ng-container matColumnDef="artist">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>ARTIST</th>
-            <td mat-cell *matCellDef="let track">{{track.artist.name}}</td>
+            <th [hidden]="screenWidth <= 576" mat-header-cell *matHeaderCellDef mat-sort-header>ARTIST</th>
+            <td [hidden]="screenWidth <= 576" mat-cell *matCellDef="let track">{{track.artist.name}}</td>
         </ng-container>
 
         <ng-container matColumnDef="album">

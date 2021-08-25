@@ -8,6 +8,15 @@
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+    gap: 10px;
+    row-gap: 50px;
+    padding: 20px 0;
+
+    @include screen-mobile {
+        flex-direction: column;
+        gap: 0;
+        row-gap: 20px;
+    }
 }
 
 .artist-container {
@@ -15,14 +24,25 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 20%;
-    height: 350px;
+    width: calc((100% / 5) - 8px); // ((Parent Width / Number per row) - padding)
+
+    @include screen-mobile {
+        width: 100%;
+    }
+}
+
+.artist-container:only-child {
+    width: 250px;
+    @include screen-mobile {
+        width: 100%;
+    }
 }
 
 .artist-container h4 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-width: 90%;
 }
 
 .artist-container > * {
@@ -34,6 +54,11 @@
     display: inline-block;
     width: 90%;
     height: auto;
+
+    @include screen-mobile {
+        width: 50%;
+        height: auto;
+    }
 }
 
 #artist-picture, #artist-name {
@@ -43,3 +68,5 @@
 #artist-name:hover {
     text-decoration: underline;
 }
+
+    
