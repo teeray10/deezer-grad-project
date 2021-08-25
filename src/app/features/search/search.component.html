@@ -1,5 +1,5 @@
 <div class="container">
-    <mat-tab-group>
+    <mat-tab-group *ngIf="isSearchSuccess()">
         <mat-tab label="All">
             <div class="all-tab-container">
                 <div class="top-result">
@@ -28,4 +28,5 @@
             </div>
         </mat-tab>
     </mat-tab-group>
+    <h3 *ngIf="!isSearchSuccess()">No results found. Please try a different search.</h3>
 </div>
