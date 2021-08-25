@@ -4,12 +4,16 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class OauthService {
-    checkUrlFragment(fragment: string): void {
+    checkUrlFragment(fragment: string): boolean {
         const params = new URLSearchParams(fragment);
         const accessToken = params.get('access_token');
 
-        if (accessToken)
+        if (accessToken) {
             this.saveToken(accessToken);
+            return true;
+        }
+
+        return false;
     }
     
     getToken(): string | null {

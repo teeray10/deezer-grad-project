@@ -7,7 +7,7 @@ export const environment = {
     api: {
         RESPONSE_TYPE: 'token',
         APP_ID: 498142,
-        REDIRECT_URI: 'http://localhost:4200',
+        REDIRECT_URI: 'http://localhost:8080/login',
         PERMISSIONS: 'basic_access, offline_access',
         PROXY_URL: 'http://localhost:8080/api'
     }
