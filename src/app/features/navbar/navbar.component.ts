@@ -23,6 +23,6 @@ export class NavbarComponent {
     }
 
     routeHome(): void {
-        this.router.navigate(['']);
+        this.router.navigate(['home']);
     }
 }

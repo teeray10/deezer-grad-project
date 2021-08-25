@@ -5,6 +5,7 @@ mat-toolbar {
     align-items: center;
     padding: 0;
     background: $light;
+    min-height: 100%;
 }
 
 .logo {
@@ -13,6 +14,10 @@ mat-toolbar {
     display: flex;
     justify-content: center;
     border-right: 1px solid $medium;
+
+    @include screen-mobile {
+        width: 30%;
+    }
 }
 
 .logo img {
