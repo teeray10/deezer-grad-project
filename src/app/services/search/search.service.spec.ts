@@ -1,6 +1,6 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { OauthService } from './oauth/oauth.service';
+import { OauthService } from '../oauth/oauth.service';
 
 import { SearchService } from './search.service';
 

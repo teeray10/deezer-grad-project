@@ -1,7 +1,7 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { ArtistService } from './artist.service';
-import { OauthService } from './oauth.service';
+import { OauthService } from '../oauth/oauth.service';
 
 describe('ArtistService', () => {
     let service: ArtistService;
