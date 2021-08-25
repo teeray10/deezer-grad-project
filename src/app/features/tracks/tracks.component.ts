@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { fromEvent, Subject } from 'rxjs';
+import { debounceTime, takeUntil } from 'rxjs/operators';
 import { Track } from '../../models/track';
 
 @Component({
@@ -6,8 +8,24 @@ import { Track } from '../../models/track';
   templateUrl: './tracks.component.html',
   styleUrls: ['./tracks.component.scss']
 })
-export class TracksComponent {
+export class TracksComponent implements OnInit {
     @Input() tracks: Track[] = [];
     @Input() showLimit!: number;
     displayedColumns: string[] = ['number', 'track', 'artist', 'album'];
+    screenWidth!: number;
+    private _unsubscribe$ = new Subject();
+
+    ngOnInit(): void {
+        this.getScreenSize();
+    }
+
+    private getScreenSize(): void {
+        this.screenWidth = window.innerWidth;
+        fromEvent(window, 'resize')
+            .pipe(
+                takeUntil(this._unsubscribe$)
+            ).subscribe((evt: any) => {
+                this.screenWidth = evt.target.innerWidth;
+            });
+    }
 }

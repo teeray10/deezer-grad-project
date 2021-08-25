@@ -12,8 +12,8 @@ import { FavoriteArtistsService } from 'src/app/services/favorite-artists.servic
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-    favoriteAlbums!: Album[];
-    favoriteArtists!: Artist[];
+    favoriteAlbums: Album[] = [];
+    favoriteArtists: Artist[] = [];
     unsubscribe$ = new Subject();
 
     constructor(private favoriteAlbumsService: FavoriteAlbumsService, private favoriteArtistsService: FavoriteArtistsService) { }

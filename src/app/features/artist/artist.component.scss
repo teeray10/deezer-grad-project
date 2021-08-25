@@ -2,7 +2,6 @@
 
 .container {
     height: 100%;
-    width: 80%;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -10,21 +9,25 @@
 
 .artist-profile {
     display: flex;
-    height: 35%;
     align-items: center;
-    margin: 2% 0;
+    justify-content: center;
+    margin-bottom: 2%;
+    width: 100%;
 }
 
 .artist-picture {
-    margin-right: 1%;
-    height: 100%;
+    margin-right: 2%;
 }
 
 .artist-picture img {
     display: inline-block;
     border-radius: 50%;
-    width: auto;
-    height: 100%;
+    width: 250px;
+    height: auto;
+
+    @include screen-mobile {
+        width: 150px;
+    }
 }
 
 .artist-info h1 {
