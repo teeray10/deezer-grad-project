@@ -1,9 +1,9 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { Album } from '../models/album';
+import { Album } from '../../models/album';
 import { FavoriteAlbumsService } from './favorite-albums.service';
-import { OauthService } from './oauth.service';
-import { environment } from '../../environments/environment';
+import { OauthService } from '../oauth/oauth.service';
+import { environment } from '../../../environments/environment';
 
 const successResponse = {
     data: [

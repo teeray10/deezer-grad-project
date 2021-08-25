@@ -11,6 +11,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 
 // App components
+import { AuthenticatedUserRoutingModule } from './authenticated-user-routing.module';
 import { AuthenticatedUserComponent } from '../authenticated-user/authenticated-user.component';
 import { TracksComponent } from '../tracks/tracks.component';
 import { SearchComponent } from '../search/search.component';
@@ -19,7 +20,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { ArtistComponent } from '../artist/artist.component';
 import { AlbumsComponent } from '../albums/albums.component';
 import { ArtistsComponent } from '../artists/artists.component';
-import { AuthenticatedUserRoutingModule } from './authenticated-user-routing.module';
+import { AlbumComponent } from '../album/album.component';
 
 @NgModule({
     declarations: [
@@ -30,7 +31,8 @@ import { AuthenticatedUserRoutingModule } from './authenticated-user-routing.mod
         AlbumsComponent,
         ArtistsComponent,
         SearchComponent,
-        AuthenticatedUserComponent
+        AuthenticatedUserComponent,
+        AlbumComponent
     ],
     imports: [
         CommonModule,

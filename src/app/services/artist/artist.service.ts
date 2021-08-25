@@ -2,11 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Album } from '../models/album';
-import { Artist } from '../models/artist';
-import { Track } from '../models/track';
-import { environment } from '../../environments/environment';
-import { OauthService } from './oauth.service';
+import { Album } from '../../models/album';
+import { Artist } from '../../models/artist';
+import { Track } from '../../models/track';
+import { environment } from '../../../environments/environment';
+import { OauthService } from '../oauth/oauth.service';
 
 @Injectable({
   providedIn: 'root'

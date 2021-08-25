@@ -5,7 +5,7 @@ export interface Track {
         id: number,
         name: string
     },
-    album: {
+    album?: {
         id: number,
         title: string
     }

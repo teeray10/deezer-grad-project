@@ -1,0 +1,45 @@
+@import '../../../styles.scss';
+
+.container {
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.album-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2%;
+    width: 100%;
+}
+
+.album-picture {
+    margin-right: 2%;
+}
+
+.album-picture img {
+    display: inline-block;
+    border-radius: 5%;
+    width: 250px;
+    height: auto;
+
+    @include screen-mobile {
+        width: 150px;
+    }
+}
+
+.album-info h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.album-content {
+    display: flex;
+    justify-content: center;
+}
+
+.mat-tab-group {
+    width: 100%;
+}

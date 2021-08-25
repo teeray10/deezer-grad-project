@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { OauthService } from "./services/oauth.service";
+import { OauthService } from "./services/oauth/oauth.service";
 
 @Component({
   selector: 'app-root',

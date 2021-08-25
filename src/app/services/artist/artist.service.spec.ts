@@ -1,13 +1,12 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { OauthService } from './oauth.service';
+import { ArtistService } from './artist.service';
+import { OauthService } from '../oauth/oauth.service';
 
-import { SearchService } from './search.service';
-
-describe('SearchService', () => {
-    let service: SearchService;
-    let oauthServiceSpy = jasmine.createSpyObj('OauthService', ['getToken']);
+describe('ArtistService', () => {
+    let service: ArtistService;
     let httpTestingController: HttpTestingController;
+    let oauthServiceSpy = jasmine.createSpyObj('OauthService', ['getToken']);
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -19,12 +18,12 @@ describe('SearchService', () => {
             ]
         });
         httpTestingController = TestBed.inject(HttpTestingController);
-        service = TestBed.inject(SearchService);
+        service = TestBed.inject(ArtistService);
     });
 
     afterEach(() => {
-        httpTestingController.verify(); // Check that there are no outstanding requests
-    });
+        httpTestingController.verify();
+    })
 
     it('should be created', () => {
         expect(service).toBeTruthy();

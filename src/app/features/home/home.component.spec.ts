@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { FavoriteAlbumsService } from 'src/app/services/favorite-albums.service';
-import { FavoriteArtistsService } from 'src/app/services/favorite-artists.service';
+import { FavoriteAlbumsService } from '../../services/favorite-albums/favorite-albums.service';
+import { FavoriteArtistsService } from '../../services/favorite-artists/favorite-artists.service';
 import { HomeComponent } from './home.component';
 
 describe('HomeComponent', () => {

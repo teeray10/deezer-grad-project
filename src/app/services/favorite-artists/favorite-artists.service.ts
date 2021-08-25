@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { OauthService } from './oauth.service';
+import { OauthService } from '../oauth/oauth.service';
 import { map } from 'rxjs/operators';
-import { Artist } from '../models/artist';
-import { environment } from '../../environments/environment';
+import { Artist } from '../../models/artist';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'

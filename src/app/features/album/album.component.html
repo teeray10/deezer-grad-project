@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="album-profile" *ngIf="selectedAlbum">
+        <div class="album-picture">
+            <img src="{{selectedAlbum.cover_xl}}" alt="Picture of album"/>
+        </div>
+        <div class="album-info">
+            <h1>{{selectedAlbum.title}}</h1>
+            <h3>By {{selectedAlbum.artist?.name}}</h3>
+            <h5>Released {{selectedAlbum.release_date}}</h5>
+        </div>
+    </div>
+    <div class="album-content" *ngIf="tracks.length > 0">
+        <app-tracks [tracks]="tracks" [calledByAlbum]="true"></app-tracks>
+    </div>
+</div>
