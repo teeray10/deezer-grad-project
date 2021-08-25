@@ -1,26 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ArtistComponent } from "./features/artist/artist.component";
-import { HomeComponent } from "./features/home/home.component";
-import { SearchComponent } from './features/search/search.component';
+import { AppComponent } from './app.component';
+import { AuthenticatedUserComponent } from './features/authenticated-user/authenticated-user.component';
 import { SignInComponent } from './features/sign-in/sign-in.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
     {
         path: '',
-        component: HomeComponent
-    },
-    {
-        path: 'artist/:id',
-        component: ArtistComponent
-    },
-    {
-        path: 'login',
-        component: SignInComponent
-    },
-    {
-        path: 'search/:searchTerm',
-        component: SearchComponent
+        component: AppComponent,
+        children: [
+            { path: '', component: AuthenticatedUserComponent, canActivate: [AuthGuard] },
+            { path: 'login', component: SignInComponent }
+        ]
     }
 ];
 
