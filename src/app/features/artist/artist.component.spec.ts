@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 import { Album } from '../../models/album';
 import { Artist } from '../../models/artist';
 import { Track } from '../../models/track';
-import { ArtistService } from '../../services/artist.service';
+import { ArtistService } from '../../services/artist/artist.service';
 
 import { ArtistComponent } from './artist.component';
 

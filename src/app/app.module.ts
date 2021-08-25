@@ -17,8 +17,7 @@ import { AlbumComponent } from './features/album/album.component';
 @NgModule({
   declarations: [
         AppComponent,
-        SignInComponent,
-        AlbumComponent
+        SignInComponent
     ],
     imports: [
         BrowserModule,

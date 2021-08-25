@@ -3,8 +3,8 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Album } from 'src/app/models/album';
 import { Artist } from 'src/app/models/artist';
-import { FavoriteAlbumsService } from 'src/app/services/favorite-albums.service';
-import { FavoriteArtistsService } from 'src/app/services/favorite-artists.service';
+import { FavoriteAlbumsService } from 'src/app/services/favorite-albums/favorite-albums.service';
+import { FavoriteArtistsService } from 'src/app/services/favorite-artists/favorite-artists.service';
 
 @Component({
   selector: 'app-home',

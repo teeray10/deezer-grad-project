@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Album } from 'src/app/models/album';
 import { Artist } from 'src/app/models/artist';
 import { Track } from 'src/app/models/track';
-import { ArtistService } from 'src/app/services/artist.service';
+import { ArtistService } from 'src/app/services/artist/artist.service';
 
 @Component({
   selector: 'app-artist',

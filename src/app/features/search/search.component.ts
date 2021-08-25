@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, Subject } from 'rxjs';
-import { map, takeUntil, tap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { Album } from 'src/app/models/album';
 import { Artist } from 'src/app/models/artist';
 import { Track } from 'src/app/models/track';
-import { SearchService } from 'src/app/services/search.service';
+import { SearchService } from 'src/app/services/search/search.service';
 
 @Component({
   selector: 'app-search',

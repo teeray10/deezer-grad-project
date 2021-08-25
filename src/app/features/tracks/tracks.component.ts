@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { fromEvent, Subject } from 'rxjs';
-import { debounceTime, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 import { Track } from '../../models/track';
 
 @Component({
@@ -11,6 +11,7 @@ import { Track } from '../../models/track';
 export class TracksComponent implements OnInit {
     @Input() tracks: Track[] = [];
     @Input() showLimit!: number;
+    @Input() calledByAlbum = false;
     displayedColumns: string[] = ['number', 'track', 'artist', 'album'];
     screenWidth!: number;
     private _unsubscribe$ = new Subject();

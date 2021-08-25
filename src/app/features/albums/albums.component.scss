@@ -19,6 +19,7 @@
 
 .album-card {
     width: calc((100% / 5) - 48px); // ((Parent Width / Number per row) - padding)
+    cursor: pointer;
 
     @include screen-mobile {
         width: 60%;
@@ -30,4 +31,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 90%;
+}
+
+#album-title {
+    font-weight: 500;
 }

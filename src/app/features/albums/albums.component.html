@@ -1,8 +1,15 @@
 <div class="container">
-    <mat-card class="album-card mat-elevation-z2" *ngFor="let album of (showLimit ? (albums | slice:0:showLimit) : albums)">
-        <img mat-card-image src="{{album.cover_xl}}" alt="Album cover">
+    <mat-card 
+        class="album-card mat-elevation-z2" 
+        *ngFor="let album of (showLimit ? (albums | slice:0:showLimit) : albums)"
+        (click)="routeToAlbum(album.id)"> 
+        <img
+            id="album-picture"
+            mat-card-image
+            src="{{album.cover_xl}}"
+            alt="Album cover">
         <mat-card-content>
-            <h4>{{album.title}}</h4>
+            <h4 id="album-title">{{album.title}}</h4>
             <h5>{{album.release_date}}</h5>
         </mat-card-content>
     </mat-card>
